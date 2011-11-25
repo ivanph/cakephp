@@ -21,7 +21,7 @@ class ReportesController extends AppController {
             $sesion = ClassRegistry::init('Sesione');
             $sesiones = $sesion->find('all', array('conditions' => array('Equipo.aulas_id' => $id_aula)));
           //          array('conditions'->array('Equipo.aulas_id'=>$this))
-            debug($sesiones);
+            $this->set('sesiones',$sesiones);
         }
 
         

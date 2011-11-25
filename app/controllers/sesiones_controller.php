@@ -14,6 +14,10 @@ class SesionesController extends AppController {
                 $carreras = $carrera->find('all');
                 $this->set('carreras',$carreras);                
                 $this->set(compact('equipos'));
+                $aula = ClassRegistry::init('Aula');
+                $aulas = $aula
+                ->find('all');
+                $this->set('aulas',$aulas);
                 
 	}
 

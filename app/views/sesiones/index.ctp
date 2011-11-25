@@ -16,6 +16,7 @@
 	<?php
 	$i = 0;
 	foreach ($sesiones as $sesione):
+         
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
@@ -42,7 +43,12 @@
                 }
                         ;?>&nbsp;</td>
 		<td><?php echo $sesione['Equipo']['nombre'];?></td>
-		<td><?php echo $sesione['Equipo']['aula'];?></td>
+		    <td><?php    foreach ($aulas as $aula){
+                                
+                                if (($sesione['Equipo']['aulas_id']) == ($aula['Aula']['id']))
+                                  echo $aula['Aula']['aula'];
+                }
+                        ;?>&nbsp;</td>
 		
 	</tr>
 <?php endforeach; ?>
