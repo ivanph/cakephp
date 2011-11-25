@@ -1,2 +1,2 @@
-1322117871
+1322211236
 a:6:{s:2:"id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:7:"primary";}s:12:"fecha_sesion";a:4:{s:4:"type";s:4:"date";s:4:"null";b:1;s:7:"default";N;s:6:"length";N;}s:18:"hora_inicio_sesion";a:4:{s:4:"type";s:4:"time";s:4:"null";b:1;s:7:"default";N;s:6:"length";N;}s:15:"hora_fin_sesion";a:4:{s:4:"type";s:4:"time";s:4:"null";b:1;s:7:"default";N;s:6:"length";N;}s:11:"usuarios_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:7:"primary";}s:10:"equipos_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:5:"index";}}

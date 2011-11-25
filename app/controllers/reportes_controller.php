@@ -12,32 +12,18 @@ class ReportesController extends AppController {
 
 
     function aula(){
-        $equipo = ClassRegistry::init('Equipos');
-        $equipos = $equipo->find('all');
-        $this->set('equipos',$equipos);
-        if (!empty($this->params['form'])){
-            debug($this->params['form']);
+        $aula = ClassRegistry::init('Aula');
+        $aulas = $aula->find('all');
+        $this->set('aulas',$aulas);
+        
+        if (!empty ($this->params['form'])){
+            $id_aula = $this->params['form']['aula'];
             $sesion = ClassRegistry::init('Sesione');
-            $equipo = ClassRegistry::init('Equipo');
-            $registros = $equipo->find('all',
-                    array('conditions' => array('Equipo.aula' => $this->params['form']['aula'])),
-                    array('Equipo.id','Equipo.nombre'));
-           //debug($registros);
-           foreach ($registros as $registro){
-               $sesiones[] = $sesion->find('all',
-                       array('conditions' => array('Sesione.equipos_id' => $registro['Equipo']['id'])));
-                       
-                       
-           }
-           foreach ($sesiones as $sesion){
-               debug($sesion);
-              
-           }
-            //$sesiones = $registros['Sesione'];
-          // $this->set('sesiones',$sesiones);
-            
-            
+            $sesiones = $sesion->find('all', array('conditions' => array('Equipo.aulas_id' => $id_aula)));
+          //          array('conditions'->array('Equipo.aulas_id'=>$this))
+            debug($sesiones);
         }
+
         
         
     }

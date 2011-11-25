@@ -3,14 +3,14 @@
 	<fieldset>
 		<legend><?php __('Generar reporte por Aula'); ?></legend>
 	<?php
-        $valor = '';
-                foreach ($equipos as $equipo){
-                   if($valor != $equipo['Equipos']['aula'] ){ 
-                        $valor = $equipo['Equipos']['aula'];
+                foreach ($aulas as $aula){
+                    $id=$aula['Aula']['id'];
+                    $aula_nombre =$aula['Aula']['aula']; 
+                   
                     
-                    echo '<input type="radio" name="aula" value="'.$valor.'" />'.$valor.'<br /><br />';
+                    echo '<input type="radio" name="aula" value="'.$id.'" />'.$aula_nombre.'<br /><br />';
                    }
-            }        
+                    
                     
             
                 ?>
