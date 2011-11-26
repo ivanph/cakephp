@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('aulas_id');
+               
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

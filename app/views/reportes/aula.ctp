@@ -25,6 +25,8 @@
 			<th><?php echo 'Inicio';?></th>
 			<th><?php echo  'Fin';?></th>
 			<th><?php echo 'Equipo';?></th>
+			<th><?php echo 'Usuario';?></th>
+			<th><?php echo 'Carrera';?></th>
 			
 	</tr>
 	
@@ -43,6 +45,14 @@
 		<td><?php echo $sesione['Sesione']['hora_inicio_sesion']; ?>&nbsp;</td>
 		<td><?php echo $sesione['Sesione']['hora_fin_sesion']; ?>&nbsp;</td>
 		<td><?php echo $sesione['Equipo']['nombre']; ?>&nbsp;</td>
+		<td><?php echo $sesione['Usuario']['nombre_completo']; ?>&nbsp;</td>
+		<td><?php foreach($carreras as $carrera){
+                                
+                            if ($sesione['Usuario']['carreras_id'] == $carrera['Carreras']['id']){
+                                echo $carrera['Carreras']['carrera'];
+                            }
+                            
+                         }?>&nbsp;</td>
               
 	</tr>
       

@@ -24,11 +24,7 @@
 			&nbsp;
 		</dd>
 		
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Arancel'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $usuario['Usuario']['arancel']; ?>
-			&nbsp;
-		</dd>
+		
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Matricula'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $usuario['Usuario']['matricula']; ?>
@@ -36,12 +32,12 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Tipo Usuario'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($usuario['TipoUsuario']['tipo_usuario'], array('controller' => 'tipo_usuarios', 'action' => 'view', $usuario['TipoUsuario']['tipo_usuario'])); ?>
+			<?php echo $usuario['TipoUsuario']['tipo_usuario'];?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Carrera'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($usuario['Carrera']['carrera'], array('controller' => 'carreras', 'action' => 'view', $usuario['Carrera']['carrera'])); ?>
+			<?php echo $usuario['Carrera']['carrera'];?>
 			&nbsp;
 		</dd>
 	</dl>
