@@ -29,6 +29,8 @@ class ReportesController extends AppController {
     }
     
     function carrera(){
+          
+
         $carrera = ClassRegistry::init('Carreras');
         $carreras = $carrera->find('all');
         $this->set('carreras',$carreras);
@@ -48,6 +50,12 @@ class ReportesController extends AppController {
         
     }
     
+    function periodo(){
+         
+        debug($this->data);
+    }
+    
+   
 }
 
 ?>
