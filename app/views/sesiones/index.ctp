@@ -74,5 +74,6 @@
 		<li><?php echo $this->Html->link(__('Lista de Equipos', true), array('controller' => 'equipos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Lista de Aulas', true), array('controller' => 'aulas', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Reportes', true), array('controller' => 'reportes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Salir del Sistema', true), array('controller' => 'users', 'action' => 'logout')); ?> </li>
 	</ul>
 </div>

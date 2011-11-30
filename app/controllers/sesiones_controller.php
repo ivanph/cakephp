@@ -1,6 +1,6 @@
 <?php
 class SesionesController extends AppController {
-
+   
 	var $name = 'Sesiones';
 
 	function index() {
@@ -15,11 +15,12 @@ class SesionesController extends AppController {
                 $this->set('carreras',$carreras);                
                 $this->set(compact('equipos'));
                 $aula = ClassRegistry::init('Aula');
-                $aulas = $aula
-                ->find('all');
+                $aulas = $aula->find('all');
                 $this->set('aulas',$aulas);
                 
 	}
+       
+
 
         function pdf()
 {

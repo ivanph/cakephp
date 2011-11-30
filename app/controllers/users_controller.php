@@ -1,7 +1,9 @@
 <?php
 class UsersController extends AppController {
-
+         
 	var $name = 'Users';
+        
+     
 
 	function index() {
 		$this->User->recursive = 0;
@@ -10,7 +12,7 @@ class UsersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid user', true));
+			$this->Session->setFlash(__('Usuario no encontrado', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
@@ -18,27 +20,27 @@ class UsersController extends AppController {
 
 	function add() {
 		if (!empty($this->data)) {
-			$this->User->create();
-			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('The user has been saved', true));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
-			}
-		}
-	}
+                    if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
+                    $this->User->create();
+                    $this->User->save($this->data);
+                        
+                    $this->redirect(array('action' => 'index'));
+                }
+            }
+        }
+
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid user', true));
+			$this->Session->setFlash(__('Usuario no válido', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('The user has been saved', true));
+				$this->Session->setFlash(__('Administrador agregado correctamente', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('No se pudo salvar el administrador, favor de intentrar nuevamente.', true));
 			}
 		}
 		if (empty($this->data)) {
@@ -48,14 +50,21 @@ class UsersController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for user', true));
+			$this->Session->setFlash(__('Usuario no encontrado', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->User->delete($id)) {
-			$this->Session->setFlash(__('User deleted', true));
+			$this->Session->setFlash(__('Se ha eliminado el usuario', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('User was not deleted', true));
+		$this->Session->setFlash(__('No se pudo eliminar el usuario', true));
 		$this->redirect(array('action' => 'index'));
 	}
+        
+         function login() {      }
+
+        function logout() {
+            $this->redirect($this->Auth->logout());
+            
+        }
 }
