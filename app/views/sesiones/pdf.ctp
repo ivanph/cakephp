@@ -1,7 +1,7 @@
 <?php
 App::import('Vendor','tcpdf');
 $tcpdf = new TCPDF();
-$textfont = 'freesans';
+$textfont = 'times new roman';
 $tcpdf->SetCreator(PDF_CREATOR);
 $tcpdf->SetAuthor("autor");
 $tcpdf->SetTitle("Título");
@@ -15,7 +15,7 @@ $tcpdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 $tcpdf->setLanguageArray($l);
 $tcpdf->AliasNbPages();
 $tcpdf->AddPage();
-$tcpdf->SetFont("freesans", "BI", 20);
+$tcpdf->SetFont("times", "B", 20);
 $tcpdf->Cell(0,10,"Hola mundo",1,1,'C');
 $tcpdf->Output("ejemplo.pdf", "I");
 ?>

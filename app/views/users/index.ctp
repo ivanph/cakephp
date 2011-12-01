@@ -1,10 +1,11 @@
 <div class="users index">
 	<h2><?php __('Users');?></h2>
+        <?php debug($users);?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('nombre_completo');?></th>
+			<th class="actions"><?php __('Acciones');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -15,12 +16,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['nombre_completo']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?>
+			<?php echo $this->Html->link(__('Borrar', true), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Está seguro de querer borrar al usuario %s?', true), $user['User']['username'])); ?>
+			<?php echo $this->Html->link(__('Cambiar Contraseña', true), array('action' => 'cambiarContrasenia', $user['User']['id']), null, sprintf(__('Está seguro de querer borrar al usuario %s?', true), $user['User']['username'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -40,7 +40,7 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Opciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>
 	</ul>

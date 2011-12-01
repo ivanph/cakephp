@@ -7,6 +7,7 @@
                 echo $form->input('username');
                 echo $form->input('password');
                 echo $form->input('password_confirm', array('type' => 'password'));
+                echo $form->input('nombre_completo');
                 echo $form->submit();
                 echo $form->end();
 ?>
@@ -15,9 +16,9 @@
 
 </div>
 <div class="actions">
-	<h3><?php __('Actions'); ?></h3>
+	<h3><?php __('Opciones'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Users', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Lista de Usuarios', true), array('action' => 'index'));?></li>
 	</ul>
 </div>

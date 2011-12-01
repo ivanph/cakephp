@@ -37,7 +37,7 @@ class UsersController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(__('Administrador agregado correctamente', true));
+				$this->Session->setFlash(__('Cambios agregados correctamente', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('No se pudo salvar el administrador, favor de intentrar nuevamente.', true));
