@@ -9,7 +9,13 @@ class ReportesController extends AppController {
                 
     }
 
- 
+     function beforeFilter()
+        
+        {
+                $this->Auth->allow('download');
+                parent::beforeFilter();
+        }
+
 
 
     function aula(){
@@ -84,7 +90,23 @@ class ReportesController extends AppController {
         }
     }
     
+    
+    
    
-}
+   function download($id = null) {
+        // Include Component
+        App::import('Component', 'Pdf');
+        // Make instance
+        $Pdf = new PdfComponent();
+        // Invoice name (output name)
+        $Pdf->filename = 'your_invoice'; // Without .pdf
+        // You can use download or browser here
+        $Pdf->output = 'download';
+        $Pdf->init();
+        // Render the view
+        $Pdf->process(Router::url('/', true) . 'usuarios/view/2');
+        $this->render(false);
+    }
+} 
 
 ?>
